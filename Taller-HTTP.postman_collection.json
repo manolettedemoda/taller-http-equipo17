@@ -1,0 +1,140 @@
+{
+  "info": {
+    "name": "Taller HTTP - Equipo 17",
+    "description": "Servicio Express con CORS y validación del header X-Red-Equipo.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1 - GET mascotas (200)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-Red-Equipo",
+            "value": "CIAF-17",
+            "type": "text"
+          },
+          {
+            "key": "Origin",
+            "value": "http://localhost:5500",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/api/mascotas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "mascotas"
+          ]
+        }
+      }
+    },
+    {
+      "name": "2 - POST mascota (201)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-Red-Equipo",
+            "value": "CIAF-17",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"nombre\":\"Rex\",\"tipo\":\"perro\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/mascotas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "mascotas"
+          ]
+        }
+      }
+    },
+    {
+      "name": "3 - GET sin header (401)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/mascotas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "mascotas"
+          ]
+        }
+      }
+    },
+    {
+      "name": "4 - Verificar headers de respuesta",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
+              "pm.test(\"Sello del equipo\", () => pm.response.to.have.header(\"X-Servidor-Procesado\", \"Equipo-17\"));",
+              "pm.test(\"CORS permite localhost:5500\", () => pm.response.to.have.header(\"Access-Control-Allow-Origin\", \"http://localhost:5500\"));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-Red-Equipo",
+            "value": "CIAF-17",
+            "type": "text"
+          },
+          {
+            "key": "Origin",
+            "value": "http://localhost:5500",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/api/mascotas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "mascotas"
+          ]
+        }
+      }
+    }
+  ]
+}
