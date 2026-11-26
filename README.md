@@ -91,13 +91,13 @@ reemplaza la autenticación; por eso además se usa X-Red-Equipo.
 
 **Respuesta exitosa (200) con Headers de respuesta visibles**
 
-![Respuesta exitosa](capturas/200-exitosa.png)
+![Respuesta exitosa](200-exitosa.png)
 
 **Respuesta 401 al omitir el encabezado**
 
-![Respuesta 401](capturas/401-sin-header.png)
+![Respuesta 401](401-sin-header.png)
 
 ## 10. Colección de Postman
 
-Archivo: `postman/Taller-HTTP.postman_collection.json`
+Archivo: `Taller-HTTP.postman_collection.json`
 (se importa en Postman con Import > Upload Files).
